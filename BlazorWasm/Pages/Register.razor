@@ -1,0 +1,78 @@
+﻿@page "/Register"
+@using HttpClients.ClientInterfaces
+@using Model.DTOs
+@using BlazorWasm.Services.HTTP
+@inject IUserService userService;
+@inject IAuthService authService;
+@inject NavigationManager navMgr
+
+<PageTitle>Register</PageTitle>
+<AuthorizeView>
+    <Authorized>
+        <h3 style="text-align: center">You are already logged in</h3>
+    </Authorized>
+    <NotAuthorized>
+        
+        <div class="card">
+                <h3 style="text-align: center">Register</h3>
+            <div class="field">
+                <label>User name:</label>
+                <input type="text" @bind="userName"/>
+            </div>
+            <div class="field">
+                                <label>Email:</label>
+                                <input type="text" @bind="email"/>
+                            </div>
+            <div class="field">
+                <label style="text-align: center">Password:</label>
+                <input type="password" @bind="password"/>
+            </div>
+            <div class="field">
+                                <label style="text-align: center">Repeat password:</label>
+                                <input type="password" @bind="repeatedPassword"/>
+                            </div>
+                        @if (!string.IsNullOrEmpty(errorLabel))
+                        {
+                            <div class="field">
+                                <label style="color: red">
+                                    @errorLabel
+                                </label>
+                            </div>
+                        }
+                        <div class="field">
+                            <button class="loginbtn" @onclick="RegisterAsync">Log in</button>
+                        </div>
+                    </div>
+
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private string? userName;
+    private string? email;
+    private string? password;
+    private string? repeatedPassword;
+    private string? errorLabel;
+
+    private async Task RegisterAsync()
+    {
+        errorLabel = "";
+        try
+        {
+            if (!repeatedPassword.Equals(password))
+            {
+                throw new Exception("Passwords are not matching");
+            }
+            UserCreationDto userCreationDto = new UserCreationDto(userName, password, email);
+            await userService.CreateAsync(userCreationDto);
+            await authService.LoginAsync(userCreationDto.Username, userCreationDto.Password);
+            navMgr.NavigateTo("/");
+            
+        }
+        catch (Exception e)
+        {
+            errorLabel = e.Message;
+        }
+    }
+
+}

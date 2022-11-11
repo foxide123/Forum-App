@@ -1,0 +1,80 @@
+﻿@page "/CreatePost"
+@using System.Security.Claims
+@using HttpClients.ClientInterfaces
+@using Model
+@using Model.DTOs
+@inject IPostService postService
+@inject NavigationManager navMgr
+@attribute [Authorize]
+
+<PageTitle>Create Post</PageTitle>
+
+<h3 xmlns="http://www.w3.org/1999/html" style="text-align: center">Post creation</h3>
+
+<div class="card post-card">
+    <h3>Input post data:</h3>
+    <div class="field-container">
+        <div class="field">
+                            <label>Title:</label>
+                            <input type="text" @bind="title"/>
+                        </div>
+                        <div class="field">
+                            <label style="text-align: center">Post body:</label>
+                            <textarea @bind="body"></textarea>
+                        </div>
+    </div>
+                
+                @if (!string.IsNullOrEmpty(errorLabel))
+                {
+                    <div class="field">
+                        <label style="color: red">
+                            @errorLabel
+                        </label>
+                    </div>
+                }
+                <div>
+                    <button class="loginbtn" @onclick="CreatePostTask">Create</button>
+                </div>
+            </div>
+
+@code {
+
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    private string? userId;
+    private string? title;
+    private string? body;
+    private string? errorLabel;
+    
+    private async Task CreatePostTask()
+    {
+        errorLabel = "";
+        try
+        {
+            PostCreationDto postCreationDto = new PostCreationDto(title, body, Int32.Parse(userId));
+            await postService.CreateAsync(postCreationDto);
+            navMgr.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            errorLabel = $"Error: {e.Message}";
+        }
+    }
+    
+    protected override async Task OnInitializedAsync()
+    {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal user = authState.User;
+        isLoggedIn = user.Identity != null;
+
+        if (!isLoggedIn) return;
+
+        userClaims = user.Claims;
+        var enumerable = userClaims as Claim[] ?? userClaims.ToArray();
+        userId = enumerable.First(claim => claim.Type.Equals("Id")).Value;
+    }
+
+}

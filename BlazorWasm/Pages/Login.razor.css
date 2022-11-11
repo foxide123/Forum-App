@@ -1,0 +1,21 @@
+﻿.login-card {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+.post-card
+{
+    margin-block: 1rem;
+    padding: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.post-card a
+{
+    color: black;
+    font-weight: bold;
+}

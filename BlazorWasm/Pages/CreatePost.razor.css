@@ -1,0 +1,38 @@
+﻿.post-card
+{
+    width: 80%;
+}
+
+.field
+{
+    display: flex;
+    margin-block: 1.5rem;
+    justify-content: center;
+    
+}
+
+label
+{
+    margin-inside: 15px;
+}
+
+.field-container{
+    text-align: center;
+}
+
+
+.field input
+{
+    width: 40%;
+}
+
+.field textarea, input
+{
+    width: 70%;
+    margin-inline: 0.8rem;
+}
+
+.field textarea
+{
+    height: 200px;
+}

@@ -1,0 +1,90 @@
+{
+  "Users": [
+    {
+      "Id": 1,
+      "UserName": "hedrekao",
+      "Password": "dnp12345",
+      "Email": "tomek.sloma321@gmail.com"
+    },
+    {
+      "Id": 2,
+      "UserName": "Barto",
+      "Password": "dnp111111",
+      "Email": "bartek@gmail.com"
+    },
+    {
+      "Id": 3,
+      "UserName": "her",
+      "Password": "123456789",
+      "Email": "ut@ut.dk"
+    }
+  ],
+  "Posts": [
+    {
+      "Id": 1,
+      "Title": "Post number 1",
+      "Body": "dsdsds",
+      "Creator": {
+        "Id": 1,
+        "UserName": "hedrekao",
+        "Password": "dnp12345",
+        "Email": "tomek.sloma321@gmail.com"
+      }
+    },
+    {
+      "Id": 2,
+      "Title": "fdsfdsf",
+      "Body": "fdsfsdfs",
+      "Creator": {
+        "Id": 1,
+        "UserName": "hedrekao",
+        "Password": "dnp12345",
+        "Email": "tomek.sloma321@gmail.com"
+      }
+    },
+    {
+      "Id": 3,
+      "Title": "Post nr2",
+      "Body": "Witam kuwwww",
+      "Creator": {
+        "Id": 1,
+        "UserName": "hedrekao",
+        "Password": "dnp12345",
+        "Email": "tomek.sloma321@gmail.com"
+      }
+    },
+    {
+      "Id": 4,
+      "Title": "Posy 5",
+      "Body": "dsafasfa",
+      "Creator": {
+        "Id": 1,
+        "UserName": "hedrekao",
+        "Password": "dnp12345",
+        "Email": "tomek.sloma321@gmail.com"
+      }
+    },
+    {
+      "Id": 5,
+      "Title": "Posy 5",
+      "Body": "dsafasfa",
+      "Creator": {
+        "Id": 1,
+        "UserName": "hedrekao",
+        "Password": "dnp12345",
+        "Email": "tomek.sloma321@gmail.com"
+      }
+    },
+    {
+      "Id": 6,
+      "Title": "Bananas",
+      "Body": "bla bla bla dolores ipsum fuck knows",
+      "Creator": {
+        "Id": 3,
+        "UserName": "her",
+        "Password": "123456789",
+        "Email": "ut@ut.dk"
+      }
+    }
+  ]
+}

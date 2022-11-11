@@ -1,0 +1,26 @@
+﻿@page "/"
+@using HttpClients.ClientInterfaces
+@using Model
+@inject IPostService postService;
+
+<PageTitle>Home</PageTitle>
+
+<h1>Reddit copy</h1>
+
+<p>Here is the list of all posts that are stored in database: </p>
+
+@foreach(Post post in posts)
+    {
+        <div class="post-card">
+            <a href="/posts/@post.Id"><h3>@post.Title</h3></a>
+        </div>
+    }
+
+@code
+{
+    private IEnumerable<Post> posts = new List<Post>();
+     protected override async Task OnInitializedAsync()
+    {
+        posts = await postService.GetAllAsync();
+    }
+}

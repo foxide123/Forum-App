@@ -1,0 +1,97 @@
+﻿@page "/Login"
+@using BlazorWasm.Services.HTTP
+@using System.Security.Claims
+@using HttpClients.ClientInterfaces
+@using Model
+@inject IAuthService authService
+@inject IPostService postService
+@inject NavigationManager navMgr
+
+<PageTitle>Login</PageTitle>
+
+
+@if (!isLoggedIn)
+{
+    <div class="card ">
+                <h3>Please login</h3>
+                <div class="field">
+                    <label>User name:</label>
+                    <input type="text" @bind="userName"/>
+                </div>
+                <div class="field">
+                    <label style="text-align: center">Password:</label>
+                    <input type="password" @bind="password"/>
+                </div>
+                @if (!string.IsNullOrEmpty(errorLabel))
+                {
+                    <div class="field">
+                        <label style="color: red">
+                            @errorLabel
+                        </label>
+                    </div>
+                }
+                <div class="field">
+                    <button class="loginbtn" @onclick="LoginAsync">Log in</button>
+                </div>
+            </div>
+}
+else
+{
+    <div class="card login-card">
+        <h1>Hello, @userNameLogged</h1>
+        <h2>This are your posts</h2>
+        @foreach(Post post in userPosts)
+        {
+            <div class="post-card">
+                            <a href="/posts/@post.Id"><h3>@post.Title</h3></a>
+            </div>
+        }
+    </div>
+}
+
+
+@code {
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    private string userName;
+    private string password;
+    private string errorLabel;
+    private IEnumerable<Post>? userPosts = new List<Post>();
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    private string? userId;
+    private string? userNameLogged;
+
+    private async Task LoginAsync()
+    {
+        errorLabel = "";
+        try
+        {
+            await authService.LoginAsync(userName, password);
+            navMgr.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            errorLabel = $"Error: {e.Message}";
+        }
+    }
+    
+
+    protected override async Task OnInitializedAsync()
+    {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal user = authState.User;
+        isLoggedIn = user.Identity != null;
+        
+        if (!isLoggedIn) return;
+        
+        userClaims = user.Claims;
+        var enumerable = userClaims as Claim[] ?? userClaims.ToArray();
+        userId = enumerable.First(claim => claim.Type.Equals("Id")).Value;
+        
+        userNameLogged = user.Identity!.Name;
+
+        userPosts = await postService.GetUserPostsAsync(Int32.Parse(userId));
+    }
+}
