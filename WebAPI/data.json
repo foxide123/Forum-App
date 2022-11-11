@@ -2,88 +2,55 @@
   "Users": [
     {
       "Id": 1,
-      "UserName": "hedrekao",
-      "Password": "dnp12345",
-      "Email": "tomek.sloma321@gmail.com"
+      "UserName": "mobo",
+      "Password": "123456789",
+      "Email": "mobo@mobo.dk"
     },
     {
       "Id": 2,
-      "UserName": "Barto",
-      "Password": "dnp111111",
-      "Email": "bartek@gmail.com"
+      "UserName": "Leon Trotsky",
+      "Password": "123456789",
+      "Email": "lew@com.party"
     },
     {
       "Id": 3,
-      "UserName": "her",
+      "UserName": "Lew",
       "Password": "123456789",
-      "Email": "ut@ut.dk"
+      "Email": "lew@comi.party"
     }
   ],
   "Posts": [
     {
       "Id": 1,
-      "Title": "Post number 1",
-      "Body": "dsdsds",
+      "Title": "Bananas",
+      "Body": "What is Lorem Ipsum?\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\u0027s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
       "Creator": {
         "Id": 1,
-        "UserName": "hedrekao",
-        "Password": "dnp12345",
-        "Email": "tomek.sloma321@gmail.com"
+        "UserName": "mobo",
+        "Password": "123456789",
+        "Email": "mobo@mobo.dk"
       }
     },
     {
       "Id": 2,
-      "Title": "fdsfdsf",
-      "Body": "fdsfsdfs",
+      "Title": "Karl Miky",
+      "Body": "Lev Davidovitj Trotskij (russisk: \u041B\u0435\u0432 \u0414\u0430\u0432\u0438\u0301\u0434\u043E\u0432\u0438\u0447 \u0422\u0440\u043E\u0301\u0446\u043A\u0438\u0439, tr. Lev Dav\u00EDdovitj Tr\u00F3tskij, p\u00E5 engelsk Leo(n) Trotsky; f\u00F8dt 7. november 1879, d\u00F8d 21. august 1940; oprindeligt Lev Davidovitj Bronstein) var en russisk revolution\u00E6r, politisk t\u00E6nker og politiker.\n\nHan var en af lederne af Oktoberrevolutionen og regnes for dens n\u00E6stkommanderende efter Lenin. Efter Lenins d\u00F8d i 1924 var han en af hovedmodstanderne mod Stalins politiske linje. Det f\u00F8rte til hans eksklusion fra partiet i 1927 og deportation fra Sovjetunionen i 1929.\n\nTrotskij blev myrdet i 1940 med en is\u00F8kse af den kommunistiske NKVD-agent Ram\u00F3n Mercader.",
       "Creator": {
-        "Id": 1,
-        "UserName": "hedrekao",
-        "Password": "dnp12345",
-        "Email": "tomek.sloma321@gmail.com"
+        "Id": 2,
+        "UserName": "Leon Trotsky",
+        "Password": "123456789",
+        "Email": "lew@com.party"
       }
     },
     {
       "Id": 3,
-      "Title": "Post nr2",
-      "Body": "Witam kuwwww",
-      "Creator": {
-        "Id": 1,
-        "UserName": "hedrekao",
-        "Password": "dnp12345",
-        "Email": "tomek.sloma321@gmail.com"
-      }
-    },
-    {
-      "Id": 4,
-      "Title": "Posy 5",
-      "Body": "dsafasfa",
-      "Creator": {
-        "Id": 1,
-        "UserName": "hedrekao",
-        "Password": "dnp12345",
-        "Email": "tomek.sloma321@gmail.com"
-      }
-    },
-    {
-      "Id": 5,
-      "Title": "Posy 5",
-      "Body": "dsafasfa",
-      "Creator": {
-        "Id": 1,
-        "UserName": "hedrekao",
-        "Password": "dnp12345",
-        "Email": "tomek.sloma321@gmail.com"
-      }
-    },
-    {
-      "Id": 6,
-      "Title": "Bananas",
-      "Body": "bla bla bla dolores ipsum fuck knows",
+      "Title": "Lew will make your granma happy",
+      "Body": "Lev Davidovitj Trotskij (russisk: \u041B\u0435\u0432 \u0414\u0430\u0432\u0438\u0301\u0434\u043E\u0432\u0438\u0447 \u0422\u0440\u043E\u0301\u0446\u043A\u0438\u0439, tr. Lev Dav\u00EDdovitj Tr\u00F3tskij, p\u00E5 engelsk Leo(n) Trotsky; f\u00F8dt 7. november 1879, d\u00F8d 21. august 1940; oprindeligt Lev Davidovitj Bronstein) var en russisk revolution\u00E6r, politisk t\u00E6nker og politiker.\n\nHan var en af lederne af Oktoberrevolutionen og regnes for dens n\u00E6stkommanderende efter Lenin. Efter Lenins d\u00F8d i 1924 var han en af hovedmodstanderne mod Stalins politiske linje. Det f\u00F8rte til hans eksklusion fra partiet i 1927 og deportation fra Sovjetunionen i 1929.\n\nTrotskij blev myrdet i 1940 med en is\u00F8kse af den kommunistiske NKVD-agent Ram\u00F3n Mercader.",
       "Creator": {
         "Id": 3,
-        "UserName": "her",
+        "UserName": "Lew",
         "Password": "123456789",
-        "Email": "ut@ut.dk"
+        "Email": "lew@comi.party"
       }
     }
   ]

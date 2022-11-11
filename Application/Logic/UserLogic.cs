@@ -40,14 +40,14 @@ public class UserLogic : IUserLogic
 
     private static void ValidateUserPassword(string password)
     {
-        if (password.Length < 8)
+        if (password.Length < 3)
         {
-            throw new Exception("Password is too short");
+            throw new Exception("Short Password");
         }
 
         if (!password.Any(c => char.IsDigit(c)))
         {
-            throw new Exception("Password must contain at least one number");
+            throw new Exception("Password must at leas one number");
         }
     }
     
