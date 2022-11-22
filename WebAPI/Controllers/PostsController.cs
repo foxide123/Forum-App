@@ -8,7 +8,7 @@ namespace DnpAssignment.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class PostsController : ControllerBase
+public class  PostsController : ControllerBase
 {
     private readonly IPostLogic postLogic;
 
