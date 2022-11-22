@@ -10,7 +10,7 @@ public class RedditContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/Dnp.db");
+        optionsBuilder.UseSqlite("Data Source = ../Efc/Dnp.db");
     }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
